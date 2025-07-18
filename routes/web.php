@@ -1,12 +1,13 @@
 <?php
 
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\BlogController;
-use App\Http\Controllers\FrontendController;
+use App\Http\Controllers\BrandController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\FrontendController;
 use App\Http\Controllers\ManagementController;
-use Illuminate\Support\Facades\Route;
-use Illuminate\Support\Facades\Auth;
 
 Auth::routes(['register' => false]);
 
@@ -38,3 +39,15 @@ Route::get("/home/profile", [ProfileController::class, 'index'])->name('home.pro
 Route::post("/home/profile/name/update", [ProfileController::class, 'name_update'])->name('home.profile.name.update');
 Route::post("/home/profile/password/update", [ProfileController::class, 'password_update'])->name('home.profile.password.update');
 Route::post("/home/profile/image/update", [ProfileController::class, 'image_update'])->name('home.profile.image.update');
+
+
+
+// brand
+
+Route::get('/brand', [BrandController::class, 'index'])->name('brand.index');
+Route::get('/brand/create', [BrandController::class, 'create'])->name('brand.create');
+Route::post('/brand/store', [BrandController::class, 'store'])->name('brand.store');
+Route::get('/brand/edit/{id}', [BrandController::class, 'edit'])->name('brand.edit');
+Route::post('/brand/update/{slug}', [BrandController::class, 'update'])->name('brand.update');
+Route::post('/brand/delete/{id}', [BrandController::class, 'destroy'])->name('brand.destroy');
+Route::post('/brand/status/{slug}', [BrandController::class, 'status'])->name('brand.status');

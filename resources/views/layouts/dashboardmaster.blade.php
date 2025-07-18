@@ -23,12 +23,20 @@
     <link href="{{ asset('dashboard') }}/assets/css/icons.min.css" rel="stylesheet" type="text/css">
     <script src="{{ asset('dashboard') }}/assets/js/config.js"></script>
     <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
-    <script src="https://cdn.tiny.cloud/1/1crtao3sy92z25fmm9l3jnjuv9mdrkxrddmzbuw9u7hbgalo/tinymce/7/tinymce.min.js"
-        referrerpolicy="origin"></script>
+
 
     {{-- custom css --}}
 
-
+    <!-- third party css -->
+    <link href="{{ asset('dashboard') }}/assets/libs/datatables.net-bs5/css/dataTables.bootstrap5.min.css"
+        rel="stylesheet" type="text/css" />
+    <link href="{{ asset('dashboard') }}/assets/libs/datatables.net-responsive-bs5/css/responsive.bootstrap5.min.css"
+        rel="stylesheet" type="text/css" />
+    <link href="{{ asset('dashboard') }}/assets/libs/datatables.net-buttons-bs5/css/buttons.bootstrap5.min.css"
+        rel="stylesheet" type="text/css" />
+    <link href="{{ asset('dashboard') }}/assets/libs/datatables.net-select-bs5/css/select.bootstrap5.min.css"
+        rel="stylesheet" type="text/css" />
+    <!-- third party css end -->
 
     @stack('css')
 
@@ -75,9 +83,9 @@
                     </li>
 
                     <li class="menu-item">
-                        <a class='menu-link waves-effect waves-light' href="#">
-                            <span class="menu-icon"><i class="fa-regular fa-face-smile"></i></span>
-                            <span class="menu-text"> Profile </span>
+                        <a class='menu-link waves-effect waves-light' href='{{ route('brand.index') }}'>
+                            <span class="menu-icon"><i class="mdi mdi-alpha-b-box-outline"></i></span>
+                            <span class="menu-text"> Brand </span>
                         </a>
                     </li>
 
@@ -498,6 +506,33 @@
     <!-- Dashboard init-->
     <script src="{{ asset('dashboard') }}/assets/js/pages/dashboard.js"></script>
     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
+
+
+
+    <!-- third party js -->
+    <script src="{{ asset('dashboard') }}/assets/libs/datatables.net/js/jquery.dataTables.min.js"></script>
+    <script src="{{ asset('dashboard') }}/assets/libs/datatables.net-bs5/js/dataTables.bootstrap5.min.js"></script>
+    <script src="{{ asset('dashboard') }}/assets/libs/datatables.net-responsive/js/dataTables.responsive.min.js"></script>
+    <script src="{{ asset('dashboard') }}/assets/libs/datatables.net-responsive-bs5/js/responsive.bootstrap5.min.js">
+    </script>
+    <script src="{{ asset('dashboard') }}/assets/libs/datatables.net-buttons/js/dataTables.buttons.min.js"></script>
+    <script src="{{ asset('dashboard') }}/assets/libs/datatables.net-buttons-bs5/js/buttons.bootstrap5.min.js"></script>
+    <script src="{{ asset('dashboard') }}/assets/libs/datatables.net-buttons/js/buttons.html5.min.js"></script>
+    <script src="{{ asset('dashboard') }}/assets/libs/datatables.net-buttons/js/buttons.flash.min.js"></script>
+    <script src="{{ asset('dashboard') }}/assets/libs/datatables.net-buttons/js/buttons.print.min.js"></script>
+    <script src="{{ asset('dashboard') }}/assets/libs/datatables.net-keytable/js/dataTables.keyTable.min.js"></script>
+    <script src="{{ asset('dashboard') }}/assets/libs/datatables.net-select/js/dataTables.select.min.js"></script>
+    <script src="{{ asset('dashboard') }}/assets/libs/pdfmake/build/pdfmake.min.js"></script>
+    <script src="{{ asset('dashboard') }}/assets/libs/pdfmake/build/vfs_fonts.js"></script>
+    <!-- third party js ends -->
+
+    <!-- Datatables js -->
+    <script src="{{ asset('dashboard') }}/assets/js/pages/datatables.js"></script>
+
+
+    <!-- jQuery -->
+
+
 
 
     @yield('script')
