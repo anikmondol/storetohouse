@@ -36,7 +36,7 @@
             <div class="col-lg-3 col-md-6">
                 <div class="card shadow-xl border-0 mb-4 text-center">
                     <div class="card-body text-secondary">
-                        <button class="btn btn-custom">ITEM TRANSFER</button>
+                        <button class="btn btn-custom">BRAND</button>
                     </div>
                 </div>
             </div>
