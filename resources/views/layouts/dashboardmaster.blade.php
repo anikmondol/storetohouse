@@ -2,16 +2,13 @@
 <html lang="en" data-bs-theme="light" data-menu-color="brand" data-topbar-color="light">
 
 
-<!-- Mirrored from myrathemes.com/dashtrap/ by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 22 Mar 2024 03:40:24 GMT -->
-<!-- Added by HTTrack -->
-<meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+<meta http-equiv="content-type" content="text/html;charset=UTF-8" />
 
 <head>
     <meta charset="utf-8" />
     <title>@yield('title') | Dashtrap - Responsive Bootstrap 5 Admin Dashboard</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta content="A fully featured admin theme which can be used to build CRM, CMS, etc." name="description" />
-    <meta content="Myra Studio" name="author" />
+
 
     <!-- App favicon -->
     <link rel="shortcut icon" href="{{ asset('dashboard') }}/assets/images/favicon.ico">
@@ -28,6 +25,12 @@
     <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
     <script src="https://cdn.tiny.cloud/1/1crtao3sy92z25fmm9l3jnjuv9mdrkxrddmzbuw9u7hbgalo/tinymce/7/tinymce.min.js"
         referrerpolicy="origin"></script>
+
+    {{-- custom css --}}
+
+
+
+    @stack('css')
 
 </head>
 
@@ -71,7 +74,37 @@
                         </a>
                     </li>
 
+                    <li class="menu-item">
+                        <a class='menu-link waves-effect waves-light' href="#">
+                            <span class="menu-icon"><i class="fa-regular fa-face-smile"></i></span>
+                            <span class="menu-text"> Profile </span>
+                        </a>
+                    </li>
 
+                    @if (Auth::user()->role == 'admin' || Auth::user()->role == 'manager')
+                        <li class="menu-title">Management User</li>
+                        <li class="menu-item">
+                            <a href="#menuRole" data-bs-toggle="collapse" class="menu-link waves-effect waves-light">
+                                <span class="menu-icon"><i class="bx bx-file"></i></span>
+                                <span class="menu-text"> Role & Permission </span>
+                                <span class="menu-arrow"></span>
+                            </a>
+                            <div class="collapse" id="menuRole">
+                                <ul class="sub-menu">
+                                    <li class="menu-item">
+                                        <a class='menu-link' href='{{ route('management.index') }}'>
+                                            <span class="menu-text">Assign Role & Register</span>
+                                        </a>
+                                    </li>
+                                    <li class="menu-item">
+                                        <a class='menu-link' href='{{ route('management.role.index') }}'>
+                                            <span class="menu-text">Assign Existing Users Role</span>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </li>
+                    @endif
 
                     <li class="menu-item">
                         <a class='menu-link waves-effect waves-light' href="{{ route('home.profile') }}">
@@ -79,10 +112,6 @@
                             <span class="menu-text"> Profile </span>
                         </a>
                     </li>
-
-
-
-
 
                 </ul>
             </div>
@@ -230,7 +259,8 @@
                                                 </div>
                                                 <div class="flex-grow-1 text-truncate ms-2">
                                                     <h5 class="noti-item-title fw-semibold font-size-14">Datacorp
-                                                        <small class="fw-normal text-muted ms-1">1 min ago</small></h5>
+                                                        <small class="fw-normal text-muted ms-1">1 min ago</small>
+                                                    </h5>
                                                     <small class="noti-item-subtitle text-muted">Caleb Flakelar
                                                         commented on Admin</small>
                                                 </div>
@@ -277,7 +307,8 @@
                                                 </div>
                                                 <div class="flex-grow-1 text-truncate ms-2">
                                                     <h5 class="noti-item-title fw-semibold font-size-14">Cristina Pride
-                                                        <small class="fw-normal text-muted ms-1">1 day ago</small></h5>
+                                                        <small class="fw-normal text-muted ms-1">1 day ago</small>
+                                                    </h5>
                                                     <small class="noti-item-subtitle text-muted">Hi, How are you? What
                                                         about our next meeting</small>
                                                 </div>
@@ -407,10 +438,10 @@
             </div>
             <!-- ========== Topbar End ========== -->
 
-            <div class="px-3">
+            <div class="px-3 mt-4">
 
                 <!-- Start Content-->
-                <div class="container-fluid mt-5">
+                <div class="container-fluid">
 
                     @yield('content')
 
