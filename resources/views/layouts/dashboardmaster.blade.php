@@ -82,12 +82,22 @@
                         </a>
                     </li>
 
+                    {{-- brand --}}
                     <li class="menu-item">
                         <a class='menu-link waves-effect waves-light' href='{{ route('brand.index') }}'>
                             <span class="menu-icon"><i class="mdi mdi-alpha-b-box-outline"></i></span>
                             <span class="menu-text"> Brand </span>
                         </a>
                     </li>
+
+                    {{-- category --}}
+                    <li class="menu-item">
+                        <a class='menu-link waves-effect waves-light' href='{{ route('category.index') }}'>
+                            <span class="menu-icon"><i class="mdi mdi-alpha-c-box-outline"></i></span>
+                            <span class="menu-text"> Category </span>
+                        </a>
+                    </li>
+
 
                     @if (Auth::user()->role == 'admin' || Auth::user()->role == 'manager')
                         <li class="menu-title">Management User</li>
@@ -528,7 +538,6 @@
 
     <!-- Datatables js -->
     <script src="{{ asset('dashboard') }}/assets/js/pages/datatables.js"></script>
-
 
     <!-- jQuery -->
 

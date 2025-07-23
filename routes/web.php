@@ -2,7 +2,6 @@
 
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\BlogController;
 use App\Http\Controllers\BrandController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\CategoryController;
@@ -51,3 +50,14 @@ Route::get('/brand/edit/{id}', [BrandController::class, 'edit'])->name('brand.ed
 Route::post('/brand/update/{slug}', [BrandController::class, 'update'])->name('brand.update');
 Route::post('/brand/delete/{id}', [BrandController::class, 'destroy'])->name('brand.destroy');
 Route::post('/brand/status/{slug}', [BrandController::class, 'status'])->name('brand.status');
+
+
+// category
+
+Route::get('/category', [CategoryController::class, 'index'])->name('category.index');
+Route::get('/category/create', [CategoryController::class, 'create'])->name('category.create');
+Route::post('/category/store', [CategoryController::class, 'store'])->name('category.store');
+Route::get('/category/edit/{id}', [CategoryController::class, 'edit'])->name('category.edit');
+Route::post('/category/update/{slug}', [CategoryController::class, 'update'])->name('category.update');
+Route::post('/category/delete/{id}', [CategoryController::class, 'destroy'])->name('category.destroy');
+Route::post('/category/status/{slug}', [CategoryController::class, 'status'])->name('category.status');
