@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\BrandController;
+use App\Http\Controllers\StoreController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\FrontendController;
@@ -61,3 +62,14 @@ Route::get('/category/edit/{id}', [CategoryController::class, 'edit'])->name('ca
 Route::post('/category/update/{slug}', [CategoryController::class, 'update'])->name('category.update');
 Route::post('/category/delete/{id}', [CategoryController::class, 'destroy'])->name('category.destroy');
 Route::post('/category/status/{slug}', [CategoryController::class, 'status'])->name('category.status');
+
+
+// category
+
+Route::get('/store', [StoreController::class, 'index'])->name('store.index');
+Route::get('/store/create', [StoreController::class, 'create'])->name('store.create');
+Route::post('/store/store', [StoreController::class, 'store'])->name('store.store');
+Route::get('/store/edit/{id}', [StoreController::class, 'edit'])->name('store.edit');
+Route::post('/store/update/{slug}', [StoreController::class, 'update'])->name('store.update');
+Route::post('/store/delete/{id}', [StoreController::class, 'destroy'])->name('store.destroy');
+Route::post('/store/status/{slug}', [StoreController::class, 'status'])->name('store.status');

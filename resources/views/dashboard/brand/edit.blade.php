@@ -34,7 +34,7 @@
                             <label for="brand_entry" class="form-label">Brand Entry By</label>
                             <input name="brand_entry" type="text"
                                 class="form-control @error('brand_entry') is-invalid @enderror" id="brand_entry"
-                                value="{{ old('brand_entry', $brand->brand_entry) }}">
+                                value="{{ auth()->user()->name }}" readonly>
                             @error('brand_entry')
                                 <span class="invalid-feedback"><strong>{{ $message }}</strong></span>
                             @enderror

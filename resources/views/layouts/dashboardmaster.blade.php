@@ -99,6 +99,16 @@
                     </li>
 
 
+
+                    {{-- store --}}
+                    <li class="menu-item">
+                        <a class='menu-link waves-effect waves-light' href='{{ route('store.index') }}'>
+                            <span class="menu-icon"><i class="mdi mdi-cart-variant"></i></span>
+                            <span class="menu-text"> Store </span>
+                        </a>
+                    </li>
+
+
                     @if (Auth::user()->role == 'admin' || Auth::user()->role == 'manager')
                         <li class="menu-title">Management User</li>
                         <li class="menu-item">
