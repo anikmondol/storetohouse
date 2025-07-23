@@ -6,38 +6,37 @@
             <div class="card">
                 <div class="card-body">
                     <h4 class="header-title mb-3 text-center">Add New Brand</h4>
-
-                    <form action="{{ route('brand.store') }}" method="POST">
+                    <form action="{{ route('store.update', $store->id) }}" method="POST">
                         @csrf
                         <div class="mb-2">
-                            <label for="brand_name" class="form-label">Brand Name <span class="text-danger">*</span></label>
-                            <input name="brand_name" type="text"
-                                class="form-control @error('brand_name') is-invalid @enderror" id="brand_name"
-                                placeholder="" value="{{ old('brand_name') }}">
-                            @error('brand_name')
+                            <label for="store_name" class="form-label">Store Name <span class="text-danger">*</span></label>
+                            <input name="store_name" type="text"
+                                class="form-control @error('store_name') is-invalid @enderror" id="store_name"
+                                placeholder="" value="{{ $store->store_name }}">
+                            @error('store_name')
                                 <span class="invalid-feedback text-danger" role="alert">
                                     <strong>{{ $message }}</strong>
                                 </span>
                             @enderror
                         </div>
                         <div class="mb-2">
-                            <label for="brand_country" class="form-label">Brand country <span
+                            <label for="store_location" class="form-label">Store country <span
                                     class="text-danger">*</span></label>
-                            <input name="brand_country" type="text"
-                                class="form-control @error('brand_country') is-invalid @enderror" id="brand_country"
-                                placeholder="" value="{{ old('brand_country') }}">
-                            @error('brand_country')
+                            <input name="store_location" type="text"
+                                class="form-control @error('store_location') is-invalid @enderror" id="store_location"
+                                placeholder="" value="{{ $store->store_location }}">
+                            @error('store_location')
                                 <span class="invalid-feedback text-danger" role="alert">
                                     <strong>{{ $message }}</strong>
                                 </span>
                             @enderror
                         </div>
                         <div class="mb-2">
-                            <label for="brand_entry" class="form-label">Brand Entry By</label>
-                            <input name="brand_entry" type="text"
-                                class="form-control @error('brand_entry') is-invalid @enderror" id="brand_entry"
+                            <label for="store_entry_by" class="form-label">Store Entry By</label>
+                            <input name="store_entry_by" type="text"
+                                class="form-control @error('store_entry_by') is-invalid @enderror" id="store_entry_by"
                                 placeholder="" value="{{ auth()->user()->name }}" readonly>
-                            @error('brand_entry')
+                            @error('store_entry_by')
                                 <span class="invalid-feedback text-danger" role="alert">
                                     <strong>{{ $message }}</strong>
                                 </span>
