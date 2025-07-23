@@ -10,34 +10,33 @@
 
                     <div class="d-flex align-items-center justify-content-between mb-3 border-bottom pb-2">
                         <h4>Brand Table</h4>
-                        <button onclick="window.location.href='{{ route('brand.create') }}'" type="button"
-                            class="btn btn-info waves-effect waves-light">Add Brand</button>
+                        <button onclick="window.location.href='{{ route('category.create') }}'" type="button"
+                            class="btn btn-info waves-effect waves-light">Add Category</button>
                     </div>
 
                     <table id="scroll-horizontal-datatable" class="table w-100 nowrap">
                         <thead>
                             <tr>
-                                <th>Sl No</th>
-                                <th>Brand Id</th>
-                                <th>Brand Name</th>
-                                <th>Brand Country</th>
+                                <th>SL No</th>
+                                <th>Category ID</th>
+                                <th>Category Name</th>
                                 <th>Entry Date</th>
+                                <th>Entry By</th>
                                 <th>Action</th>
                             </tr>
                         </thead>
                         <tbody>
-                            @foreach ($brands as $key => $value)
+                            @foreach ($categories as $key => $category)
                                 <tr>
                                     <td>{{ $key + 1 }}</td>
-                                    <td>{{ $value->id }}</td>
-                                    <td>{{ $value->brand_name }}</td>
-                                    <td>{{ $value->brand_country }}</td>
-                                    <td>{{ date('d-m-Y', strtotime($value->updated_at)) }}<br>
-                                        {{ date('h:i:s a', strtotime($value->updated_at)) }}</td>
+                                    <td>{{ $category->id }}</td>
+                                    <td>{{ $category->category_name }}</td>
+                                    <td>{{ $category->created_at }}</td>
+                                    <td>{{ $category->entry_by }}</td>
                                     <td>
-                                        <a href="{{ route('brand.edit', $value->id) }}" class="btn btn-sm btn-primary">
+                                        <a href="{{ route('category.edit', $category->id) }}" class="btn btn-sm btn-primary">
                                             <i class="bx bx-file"></i> Edit</a>
-                                        <form action="{{ route('brand.destroy', $value->id) }}" method="POST"
+                                        <form action="{{ route('category.destroy', $category->id) }}" method="POST"
                                             style="display:inline;">
                                             @csrf
 
