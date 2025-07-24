@@ -38,6 +38,21 @@
         rel="stylesheet" type="text/css" />
     <!-- third party css end -->
 
+
+    <link rel="shortcut icon" href="assets/images/favicon.ico">
+
+    <!-- Plugins css -->
+    <link href="{{ asset('dashboard') }}/assets/libs/quill/quill.core.css" rel="stylesheet" type="text/css" />
+    <link href="{{ asset('dashboard') }}/assets/libs/quill/quill.bubble.css" rel="stylesheet" type="text/css" />
+    <link href="{{ asset('dashboard') }}/assets/libs/quill/quill.snow.css" rel="stylesheet" type="text/css" />
+
+    <!-- App css -->
+    {{-- <link href="{{ asset('dashboard') }}/assets/css/style.min.css" rel="stylesheet" type="text/css">
+    <link href="{{ asset('dashboard') }}/assets/css/icons.min.css" rel="stylesheet" type="text/css"> --}}
+    <script src="{{ asset('dashboard') }}/assets/js/config.js"></script>
+
+
+
     @stack('css')
 
 </head>
@@ -82,6 +97,14 @@
                         </a>
                     </li>
 
+                    {{-- item --}}
+                    <li class="menu-item">
+                        <a class='menu-link waves-effect waves-light' href='{{ route('item.index') }}'>
+                            <span class="menu-icon"><i class="mdi mdi-book-plus-outline"></i></span>
+                            <span class="menu-text"> New Item </span>
+                        </a>
+                    </li>
+
                     {{-- brand --}}
                     <li class="menu-item">
                         <a class='menu-link waves-effect waves-light' href='{{ route('brand.index') }}'>
@@ -97,8 +120,6 @@
                             <span class="menu-text"> Category </span>
                         </a>
                     </li>
-
-
 
                     {{-- store --}}
                     <li class="menu-item">
@@ -549,6 +570,14 @@
     <!-- Datatables js -->
     <script src="{{ asset('dashboard') }}/assets/js/pages/datatables.js"></script>
 
+    <!-- Plugins js -->
+    <script src="{{ asset('dashboard') }}/assets/libs/quill/quill.min.js"></script>
+
+
+    <!-- Demo js-->
+    <script src="{{ asset('dashboard') }}/assets/js/pages/form-quilljs.js"></script>
+
+
     <!-- jQuery -->
 
 
@@ -558,6 +587,6 @@
 </body>
 
 
-<!-- Mirrored from myrathemes.com/dashtrap/ by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 22 Mar 2024 03:40:30 GMT -->
+
 
 </html>
