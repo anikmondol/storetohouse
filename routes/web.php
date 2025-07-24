@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\ItemController;
 use App\Http\Controllers\BrandController;
 use App\Http\Controllers\StoreController;
 use App\Http\Controllers\ProfileController;
@@ -64,7 +65,7 @@ Route::post('/category/delete/{id}', [CategoryController::class, 'destroy'])->na
 Route::post('/category/status/{slug}', [CategoryController::class, 'status'])->name('category.status');
 
 
-// category
+// store
 
 Route::get('/store', [StoreController::class, 'index'])->name('store.index');
 Route::get('/store/create', [StoreController::class, 'create'])->name('store.create');
@@ -73,3 +74,14 @@ Route::get('/store/edit/{id}', [StoreController::class, 'edit'])->name('store.ed
 Route::post('/store/update/{slug}', [StoreController::class, 'update'])->name('store.update');
 Route::post('/store/delete/{id}', [StoreController::class, 'destroy'])->name('store.destroy');
 Route::post('/store/status/{slug}', [StoreController::class, 'status'])->name('store.status');
+
+
+// item
+
+Route::get('/item', [ItemController::class, 'index'])->name('item.index');
+Route::get('/item/create', [ItemController::class, 'create'])->name('item.create');
+Route::post('/item/store', [ItemController::class, 'store'])->name('item.store');
+Route::get('/item/edit/{id}', [ItemController::class, 'edit'])->name('item.edit');
+Route::post('/item/update/{slug}', [ItemController::class, 'update'])->name('item.update');
+Route::delete('/item/delete/{id}', [ItemController::class, 'destroy'])->name('item.destroy');
+Route::post('/item/status/{slug}', [ItemController::class, 'status'])->name('item.status');
