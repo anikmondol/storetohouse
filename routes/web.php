@@ -6,9 +6,11 @@ use App\Http\Controllers\ItemController;
 use App\Http\Controllers\BrandController;
 use App\Http\Controllers\StoreController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\VehicleController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\FrontendController;
 use App\Http\Controllers\ManagementController;
+use App\Http\Controllers\MaintenanceController;
 
 Auth::routes(['register' => false]);
 
@@ -85,3 +87,27 @@ Route::get('/item/edit/{id}', [ItemController::class, 'edit'])->name('item.edit'
 Route::post('/item/update/{slug}', [ItemController::class, 'update'])->name('item.update');
 Route::delete('/item/delete/{id}', [ItemController::class, 'destroy'])->name('item.destroy');
 Route::post('/item/status/{slug}', [ItemController::class, 'status'])->name('item.status');
+
+
+
+// vehicle
+
+Route::get('/vehicle', [VehicleController::class, 'index'])->name('vehicle.index');
+Route::get('/vehicle/create', [VehicleController::class, 'create'])->name('vehicle.create');
+Route::post('/vehicle/store', [VehicleController::class, 'store'])->name('vehicle.store');
+Route::get('/vehicle/edit/{id}', [VehicleController::class, 'edit'])->name('vehicle.edit');
+Route::post('/vehicle/update/{slug}', [VehicleController::class, 'update'])->name('vehicle.update');
+Route::post('/vehicle/delete/{id}', [VehicleController::class, 'destroy'])->name('vehicle.destroy');
+Route::post('/vehicle/status/{slug}', [VehicleController::class, 'status'])->name('vehicle.status');
+
+
+
+// maintenance
+
+Route::get('/maintenance', [MaintenanceController::class, 'index'])->name('maintenance.index');
+Route::get('/maintenance/create', [MaintenanceController::class, 'create'])->name('maintenance.create');
+Route::post('/maintenance/store', [MaintenanceController::class, 'store'])->name('maintenance.store');
+Route::get('/maintenance/edit/{id}', [MaintenanceController::class, 'edit'])->name('maintenance.edit');
+Route::post('/maintenance/update/{slug}', [MaintenanceController::class, 'update'])->name('maintenance.update');
+Route::post('/maintenance/delete/{id}', [MaintenanceController::class, 'destroy'])->name('maintenance.destroy');
+Route::post('/maintenance/status/{slug}', [MaintenanceController::class, 'status'])->name('maintenance.status');

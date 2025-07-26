@@ -97,6 +97,15 @@
                         </a>
                     </li>
 
+
+                    {{-- item --}}
+                    <li class="menu-item">
+                        <a class='menu-link waves-effect waves-light' href='{{ route('vehicle.index') }}'>
+                            <span class="menu-icon"><i class="mdi mdi-bus-multiple"></i></span>
+                            <span class="menu-text"> vehicles </span>
+                        </a>
+                    </li>
+
                     {{-- item --}}
                     <li class="menu-item">
                         <a class='menu-link waves-effect waves-light' href='{{ route('item.index') }}'>
@@ -126,6 +135,14 @@
                         <a class='menu-link waves-effect waves-light' href='{{ route('store.index') }}'>
                             <span class="menu-icon"><i class="mdi mdi-cart-variant"></i></span>
                             <span class="menu-text"> Store </span>
+                        </a>
+                    </li>
+
+                    {{-- maintenance --}}
+                    <li class="menu-item">
+                        <a class='menu-link waves-effect waves-light' href='{{ route('maintenance.index') }}'>
+                            <span class="menu-icon"><i class="mdi mdi-wrench-outline"></i></span>
+                            <span class="menu-text"> Maintenance </span>
                         </a>
                     </li>
 

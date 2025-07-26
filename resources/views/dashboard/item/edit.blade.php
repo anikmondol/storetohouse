@@ -104,9 +104,6 @@
                             <div id="snow-editor" style="height: 300px;"></div>
                         </div>
 
-
-
-
                         <button type="submit" class="btn btn-primary mt-3">Submit</button>
                     </form>
 
