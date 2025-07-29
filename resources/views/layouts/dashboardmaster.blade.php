@@ -146,6 +146,15 @@
                         </a>
                     </li>
 
+                    {{-- Received  --}}
+                    <li class="menu-item">
+                        <a class='menu-link waves-effect waves-light' href='{{ route('received.index') }}'>
+                            <span class="menu-icon"><i class="mdi mdi-email-send-outline"></i></span>
+                            <span class="menu-text"> Received </span>
+                        </a>
+                    </li>
+
+
 
                     @if (Auth::user()->role == 'admin' || Auth::user()->role == 'manager')
                         <li class="menu-title">Management User</li>

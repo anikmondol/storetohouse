@@ -1,7 +1,6 @@
 @extends('layouts.dashboardmaster')
 
 @section('content')
-
     <div class="row">
 
         <div class="col-lg-6">
@@ -47,7 +46,7 @@
                                 <select class="form-select" name="role">
                                     <option value="">select roles</option>
                                     <option value="manager">Manager</option>
-                                    <option value="blogger">Blogger</option>
+                                    {{-- <option value="blogger">Blogger</option> --}}
                                     <option value="user">User</option>
                                 </select>
                                 @error('role')
@@ -126,11 +125,9 @@
 
 
     </div>
-
 @endsection
 
 @section('script')
-
     @if (session('register_complete'))
         <script>
             Toastify({
@@ -149,17 +146,16 @@
         </script>
     @endif
 
-@endsection
 
-<script>
-    var quill = new Quill('#snow-editor', {
-        theme: 'snow'
-    });
 
-    $('form').on('submit', function() {
-        let description = document.querySelector('input[name=item_description]');
-        description.value = quill.root.innerHTML;
-    });
-</script>
+    <script>
+        var quill = new Quill('#snow-editor', {
+            theme: 'snow'
+        });
 
+        $('form').on('submit', function() {
+            let description = document.querySelector('input[name=item_description]');
+            description.value = quill.root.innerHTML;
+        });
+    </script>
 @endsection

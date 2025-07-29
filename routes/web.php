@@ -9,6 +9,7 @@ use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\VehicleController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\FrontendController;
+use App\Http\Controllers\ReceivedController;
 use App\Http\Controllers\ManagementController;
 use App\Http\Controllers\MaintenanceController;
 
@@ -111,3 +112,13 @@ Route::get('/maintenance/edit/{id}', [MaintenanceController::class, 'edit'])->na
 Route::post('/maintenance/update/{slug}', [MaintenanceController::class, 'update'])->name('maintenance.update');
 Route::post('/maintenance/delete/{id}', [MaintenanceController::class, 'destroy'])->name('maintenance.destroy');
 Route::post('/maintenance/status/{slug}', [MaintenanceController::class, 'status'])->name('maintenance.status');
+
+// maintenance
+
+Route::get('/received', [ReceivedController::class, 'index'])->name('received.index');
+Route::get('/received/create', [ReceivedController::class, 'create'])->name('received.create');
+Route::post('/received/store', [ReceivedController::class, 'store'])->name('received.store');
+Route::get('/received/edit/{id}', [ReceivedController::class, 'edit'])->name('received.edit');
+Route::post('/received/update/{slug}', [ReceivedController::class, 'update'])->name('received.update');
+Route::post('/received/delete/{id}', [ReceivedController::class, 'destroy'])->name('received.destroy');
+Route::post('/received/status/{slug}', [ReceivedController::class, 'status'])->name('received.status');
