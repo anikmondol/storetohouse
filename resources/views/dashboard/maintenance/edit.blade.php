@@ -91,12 +91,10 @@
                                 value="{{ old('none', $maintenance->description) }}">
                             <div id="snow-editor" style="height: 300px;"></div>
                         </div>
-
-                        <div class="form-check form-switch mt-1">
-                            <input name="status" class="form-check-input" type="checkbox" id="flexSwitchCheckChecked"
-                                checked="1">
-
-                        </div>
+<div class="form-check form-switch mt-1">
+                                <input name="status" class="form-check-input" type="checkbox" id="flexSwitchCheckChecked"
+                                    {{ old('status', $maintenance->status ?? false) ? 'checked' : '' }}>
+                            </div>
                         <button type="submit" class="btn btn-primary mt-2">Submit</button>
                     </form>
                 </div>
