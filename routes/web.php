@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ItemController;
 use App\Http\Controllers\BrandController;
 use App\Http\Controllers\StoreController;
+use App\Http\Controllers\DamageController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\VehicleController;
 use App\Http\Controllers\CategoryController;
@@ -122,3 +123,14 @@ Route::get('/received/edit/{id}', [ReceivedController::class, 'edit'])->name('re
 Route::post('/received/update/{slug}', [ReceivedController::class, 'update'])->name('received.update');
 Route::post('/received/delete/{id}', [ReceivedController::class, 'destroy'])->name('received.destroy');
 Route::post('/received/status/{slug}', [ReceivedController::class, 'status'])->name('received.status');
+
+
+// maintenance
+
+Route::get('/damage', [DamageController::class, 'index'])->name('damage.index');
+Route::get('/damage/create', [DamageController::class, 'create'])->name('damage.create');
+Route::post('/damage/store', [DamageController::class, 'store'])->name('damage.store');
+Route::get('/damage/edit/{id}', [DamageController::class, 'edit'])->name('damage.edit');
+Route::post('/damage/update/{slug}', [DamageController::class, 'update'])->name('damage.update');
+Route::post('/damage/delete/{id}', [DamageController::class, 'destroy'])->name('damage.destroy');
+Route::post('/damage/status/{slug}', [DamageController::class, 'status'])->name('damage.status');

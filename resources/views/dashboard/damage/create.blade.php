@@ -6,7 +6,7 @@
             <div class="card">
                 <div class="card-body">
 
-                    <form action="{{ route('received.store') }}" method="POST">
+                    <form action="{{ route('damage.store') }}" method="POST">
                         @csrf
                         <div class="mb-2 row">
                             <div class="col-lg-6">
@@ -14,10 +14,10 @@
                                     <label for="item_name" class="form-label">Item Name</label>
                                     <select name="item_name" class="form-select">
                                         <option value="">Select By Id</option>
-                                        @foreach ($vehicles as $vehicle)
-                                            <option value="{{ $vehicle->id }}"
-                                                {{ old('vehicle') == $vehicle->id ? 'selected' : '' }}>
-                                                {{ $vehicle->item_name }}
+                                        @foreach ($items as $item)
+                                            <option value="{{ $item->id }}"
+                                                {{ old('item') == $item->id ? 'selected' : '' }}>
+                                                {{ $item->item_name }}
                                             </option>
                                         @endforeach
                                     </select>
@@ -26,27 +26,35 @@
                                     @enderror
                                 </div>
                             </div>
-                            <div class="col-md-6 mb-2">
-                                <label for="quantity" style="margin-bottom: 1rem" class="form-label"> Item Qty</label>
-                                <input name="quantity" type="number"
-                                    class="form-control @error('quantity') is-invalid @enderror" id="quantity"
-                                    placeholder="">
-                                @error('quantity')
-                                    <span class="invalid-feedback text-danger" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
+
+                            <div class="col-lg-6">
+                                <div class="mt-2">
+                                    <label for="store_id" class="form-label">Store Name</label>
+                                    <select name="store_id" class="form-select"> <!-- store_name → store_id -->
+                                        <option value="">Select By Id</option>
+                                        @foreach ($stores as $store)
+                                            <option value="{{ $store->id }}"
+                                                {{ old('store_id') == $store->id ? 'selected' : '' }}>
+                                                {{ $store->store_name }}
+                                            </option>
+                                        @endforeach
+                                    </select>
+                                    @error('store_id')
+                                        <span class="invalid-feedback text-danger"><strong>{{ $message }}</strong></span>
+                                    @enderror
+                                </div>
                             </div>
+
                         </div>
 
                         <div class="mb-2 row">
 
                             <div class="col-md-6 mb-2">
-                                <label for="unit_price" style="margin-bottom: 1rem" class="form-label"> Unit Price</label>
-                                <input name="unit_price" type="number"
-                                    class="form-control @error('unit_price') is-invalid @enderror" id="unit_price"
+                                <label for="item_qty" style="margin-bottom: 1rem" class="form-label"> Quantify</label>
+                                <input name="item_qty" type="number"
+                                    class="form-control @error('item_qty') is-invalid @enderror" id="item_qty"
                                     placeholder="">
-                                @error('unit_price')
+                                @error('item_qty')
                                     <span class="invalid-feedback text-danger" role="alert">
                                         <strong>{{ $message }}</strong>
                                     </span>
@@ -68,11 +76,11 @@
 
                         <div class="row mb-2">
                             <div class="col-md-6 mb-2">
-                                <label for="received_by" class="form-label">Received By</label>
-                                <input name="received_by" type="text"
-                                    class="form-control @error('received_by') is-invalid @enderror" id="received_by"
+                                <label for="entry_by" class="form-label">Received By</label>
+                                <input name="entry_by" type="text"
+                                    class="form-control @error('entry_by') is-invalid @enderror" id="entry_by"
                                     placeholder="" value="{{ auth()->user()->name }}" readonly>
-                                @error('received_by')
+                                @error('entry_by')
                                     <span class="invalid-feedback text-danger" role="alert">
                                         <strong>{{ $message }}</strong>
                                     </span>
@@ -80,11 +88,11 @@
                             </div>
 
                             <div class="col-md-6 mb-2">
-                                <label class="col-md-2 col-form-label pt-0" for="maint_date">Date</label>
+                                <label class="col-md-2 col-form-label pt-0" for="damage_date">Date</label>
                                 <div class="col-md-12">
-                                    <input class="form-control" type="date" name="maint_date" id="maint_date">
+                                    <input class="form-control" type="date" name="damage_date" id="damage_date">
                                 </div>
-                                @error('maint_date')
+                                @error('damage_date')
                                     <span class="invalid-feedback text-danger" role="alert">
                                         <strong>{{ $message }}</strong>
                                     </span>
