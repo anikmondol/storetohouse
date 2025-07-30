@@ -154,6 +154,14 @@
                         </a>
                     </li>
 
+                    {{-- damage  --}}
+                    <li class="menu-item">
+                        <a class='menu-link waves-effect waves-light' href='{{ route('damage.index') }}'>
+                            <span class="menu-icon"><i class="mdi mdi-book-cancel"></i></span>
+                            <span class="menu-text"> Damage </span>
+                        </a>
+                    </li>
+
 
 
                     @if (Auth::user()->role == 'admin' || Auth::user()->role == 'manager')
